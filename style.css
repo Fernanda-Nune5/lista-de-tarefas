@@ -1,95 +1,123 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #eedae5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Times New Roman', Times, serif; /* fonte do site */
+    background-color: #eedae5; /* cor de fundo */
 
-    min-height: 100vh;
-    /* corrigido */
-    margin: 0;
-    overflow-x: hidden;
-    /* evita deslocamento lateral */
+    display: flex; /* ativa flexbox */
+    justify-content: center; /* centraliza horizontal */
+    align-items: center; /* centraliza vertical */
+
+    min-height: 100vh; /* altura da tela inteira */
+    margin: 0; /* remove margem padrão */
+    overflow-x: hidden; /* evita rolagem lateral */
 }
+
 
 .container {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background: white; /* fundo branco */
+    padding: 30px; /* espaço interno */
+    border-radius: 10px; /* cantos arredondados */
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* sombra leve */
+
+    text-align: center; /* centraliza conteúdo */
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 400px; /* limite de largura */
 }
 
+
+/*  TÍTULO  */
 h1 {
-    color: #ff69b4;
+    color: #ff69b4; /* cor rosa */
 }
 
+
+/*  INPUT  */
 #DigitarTarefa {
-    color: #ee4da6;
-    padding: 15px;
-    width: 250px;
-    border: 1px solid #ee4da6;
-    border-radius: 10px;
+    color: #ee4da6; /* cor do texto digitado */
+    padding: 15px; /* tamanho interno */
+    width: 250px; /* largura */
+
+    border: 1px solid #ee4da6; /* borda */
+    border-radius: 10px; /* arredondamento */
 }
 
+
+/* texto de dica (placeholder) */
 #DigitarTarefa::placeholder {
     color: #ee4da6;
 }
 
+
+/* quando clica no input */
 #DigitarTarefa:focus {
-    outline: none;
-    background-color: #ff69b4;
-    color: white;
+    outline: none; /* remove borda azul padrão */
+    background-color: #ff69b4; /* muda fundo */
+    color: white; /* muda texto */
     border-color: #ff69b4;
 }
 
+
+/* muda cor do placeholder no foco */
 #DigitarTarefa:focus::placeholder {
     color: white;
 }
 
+
+/* quando passa o mouse */
 #DigitarTarefa:hover {
     background-color: #ff69b4;
     color: white;
     border-color: #ff69b4;
 }
 
+
+/* placeholder no hover */
 #DigitarTarefa:hover::placeholder {
     color: white;
 }
 
+
+/*  LISTA  */
 #listaTarefas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
+    display: flex; 
+    flex-direction: column; /* itens em coluna */
+    align-items: center; /* centraliza */
+
+    list-style: none; /* remove bolinhas */
     padding: 0;
     margin: 0;
 }
 
+
+/*  BOTÃO ADICIONAR  */
 #btnAdicionar {
-    padding: 10px 15px;
-    margin-left: 10px;
+    padding: 10px 15px; /* tamanho */
+    margin-left: 10px; /* espaço lateral */
+
     border: 1px solid #ff69b4;
     background-color: #ffffff;
     color: #ff69b4;
+
     border-radius: 10px;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
+
+/* efeito ao passar mouse */
 #btnAdicionar:hover {
     background-color: #ff69b4;
     color: white;
-    border-color: #ff69b4;
 }
 
+
+/* animação suave */
 #btnAdicionar,
 #DigitarTarefa {
     transition: 0.3s;
 }
 
+
+/*  ITEM DA LISTA  */
 li {
     background: #f9f9f9;
     margin: 10px auto;
@@ -98,44 +126,58 @@ li {
     width: 50%;
     max-width: 300px;
 
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* organiza conteúdo */
+    justify-content: space-between; /* separa texto e botão */
     align-items: center;
 
     border-radius: 10px;
     border: 1px solid #ff69b4;
-    transition: 0.2s;
+
+    transition: 0.2s; /* animação */
 }
 
+
+/* efeito ao passar mouse */
 li:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* aumenta levemente */
 }
 
+li span{
+    color:#ee4da6; /* cor do texto da tarefa */
+}
+
+/* tarefa concluída */
 .concluida {
-    text-decoration: line-through;
-    color: #999;
+    text-decoration: line-through; /* risca o texto */
+    color: #b9196b; /* cor mais escura para indicar conclusão */
 }
 
+
+/*  BOTÃO EXCLUIR  */
 .btn-excluir {
     padding: 5px 10px;
+
     background-color: #ffffff;
     color: #ff69b4;
+
     border: 1px solid #ff69b4;
     border-radius: 5px;
-    cursor: pointer;
 
-    margin-left: auto;
+    cursor: pointer;
+    margin-left: auto; /* joga o botão pra direita */
 }
 
-/* MOBILE */
+
+/*  RESPONSIVO (CELULAR)  */
 @media (max-width: 600px) {
+
     .container {
         width: 70%;
         padding: 20px;
     }
 
     input {
-        width: 100%;
+        width: 100%; /* ocupa toda largura */
         margin-top: 10px;
     }
 
@@ -148,6 +190,5 @@ li:hover {
         background-color: white;
         border: none;
         width: 100%;
-        max-width: 300px;
     }
 }
