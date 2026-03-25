@@ -1,68 +1,70 @@
-// pegar os elementos
+// pega os elementos do HTML (input, botão e lista)
 const inputTarefa = document.getElementById('DigitarTarefa');
 const btnAdicionar = document.getElementById('btnAdicionar');
 const listaTarefas = document.getElementById('listaTarefas');
 
-// carregar tarefas salvas ao abrir a página
-listaTarefas.innerHTML = localStorage.getItem("tarefas") || "";
-adicionarEventos();
 
-// quando clicar no botão
+// carrega tarefas salvas no navegador ao abrir a página
+listaTarefas.innerHTML = localStorage.getItem("tarefas") || "";
+adicionarEventos(); // reaplica eventos nas tarefas carregadas
+
+
+// quando clicar no botão "Adicionar"
 btnAdicionar.addEventListener('click', function () {
 
-    const tarefa = inputTarefa.value;
+    const tarefa = inputTarefa.value; // pega o texto digitado
 
-    // evitar tarefa vazia
+    // evita adicionar tarefa vazia
     if (tarefa === "") {
         alert("Digite uma tarefa!");
         return;
     }
 
-    // cria item
+    // cria um novo item da lista
     const li = document.createElement('li');
 
     const span = document.createElement('span');
-    span.textContent = tarefa;
+    span.textContent = tarefa; // coloca o texto da tarefa
     li.appendChild(span);
 
-    // riscar tarefa
+    // ao clicar no item -> marca/desmarca como concluído
     li.addEventListener("click", function () {
         span.classList.toggle("concluida");
         salvarTarefas();
     });
 
-    // botão excluir
+    // cria botão de excluir
     const btnExcluir = document.createElement("button");
     btnExcluir.textContent = "🎀";
-
     btnExcluir.classList.add("btn-excluir");
 
+    // ao clicar no botão -> remove a tarefa
     btnExcluir.addEventListener("click", function (event) {
-        event.stopPropagation(); // evita riscar
+        event.stopPropagation(); // evita ativar o clique do li
         li.remove();
         salvarTarefas();
     });
 
     li.appendChild(btnExcluir);
 
-    // adicionar na lista
+    // adiciona o item na lista
     listaTarefas.appendChild(li);
 
-    // limpar input
+    // limpa o campo de texto
     inputTarefa.value = "";
 
-    // salvar
+    // salva no navegador
     salvarTarefas();
 });
 
 
-// salvar no localStorage
+// salva as tarefas no localStorage
 function salvarTarefas() {
     localStorage.setItem('tarefas', listaTarefas.innerHTML);
 }
 
 
-// reaplicar eventos nas tarefas carregadas
+// reaplica eventos nas tarefas carregadas do localStorage
 function adicionarEventos() {
     const itens = document.querySelectorAll("li");
 
@@ -70,13 +72,13 @@ function adicionarEventos() {
         const span = li.querySelector("span");
         const btn = li.querySelector("button");
 
-        // riscar
+        // clicar no item → riscar
         li.addEventListener("click", function () {
             span.classList.toggle("concluida");
             salvarTarefas();
         });
 
-        // excluir
+        // clicar no botão -> excluir
         btn.addEventListener("click", function (event) {
             event.stopPropagation();
             li.remove();

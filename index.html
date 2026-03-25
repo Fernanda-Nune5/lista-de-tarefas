@@ -2,27 +2,42 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz o site se adaptar a celulares (responsividade) -->
+
     <title>Lista de tarefas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <div class="container">
-    <h1>Minha lista de tarefas</h1>
+    <!-- Caixa principal que agrupa todo o conteúdo -->
 
-    <!--Campo onde será digitado as tarefas-->
-    <input type="text" id="DigitarTarefa" placeholder="Digite uma tarefa">
+        <h1>Minha lista de tarefas</h1>
+        <!-- Título principal da página -->
 
-    <!--Botão para adicionar a tarefa-->
-    <button id="btnAdicionar">Adicionar</button>
+        <!-- Campo onde será digitado as tarefas -->
+        <input 
+            type="text" 
+            id="DigitarTarefa" 
+            placeholder="Digite uma tarefa">
+        <!-- 
+            type="text" → campo de texto
+            id → usado pelo JavaScript para acessar esse elemento
+            placeholder → texto de dica dentro do campo
+        -->
 
-    <!--Lista onde as tarefas vão aparecer-->
-    <ul id="listaTarefas"></ul>
+        <!-- Botão para adicionar a tarefa -->
+        <button id="btnAdicionar">Adicionar</button>
+        <!-- Botão que será usado no JavaScript para adicionar tarefas -->
 
+        <!-- Lista onde as tarefas vão aparecer -->
+        <ul id="listaTarefas"></ul>
+        <!-- 
+            ul = lista não ordenada
+            aqui o JavaScript vai inserir <li> dinamicamente -->
     </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>
