@@ -1,0 +1,153 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #eedae5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    /* corrigido */
+    margin: 0;
+    overflow-x: hidden;
+    /* evita deslocamento lateral */
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ff69b4;
+}
+
+#DigitarTarefa {
+    color: #ee4da6;
+    padding: 15px;
+    width: 250px;
+    border: 1px solid #ee4da6;
+    border-radius: 10px;
+}
+
+#DigitarTarefa::placeholder {
+    color: #ee4da6;
+}
+
+#DigitarTarefa:focus {
+    outline: none;
+    background-color: #ff69b4;
+    color: white;
+    border-color: #ff69b4;
+}
+
+#DigitarTarefa:focus::placeholder {
+    color: white;
+}
+
+#DigitarTarefa:hover {
+    background-color: #ff69b4;
+    color: white;
+    border-color: #ff69b4;
+}
+
+#DigitarTarefa:hover::placeholder {
+    color: white;
+}
+
+#listaTarefas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#btnAdicionar {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: 1px solid #ff69b4;
+    background-color: #ffffff;
+    color: #ff69b4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#btnAdicionar:hover {
+    background-color: #ff69b4;
+    color: white;
+    border-color: #ff69b4;
+}
+
+#btnAdicionar,
+#DigitarTarefa {
+    transition: 0.3s;
+}
+
+li {
+    background: #f9f9f9;
+    margin: 10px auto;
+    padding: 5px;
+
+    width: 50%;
+    max-width: 300px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 1px solid #ff69b4;
+    transition: 0.2s;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+.concluida {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.btn-excluir {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #ff69b4;
+    border: 1px solid #ff69b4;
+    border-radius: 5px;
+    cursor: pointer;
+
+    margin-left: auto;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .container {
+        width: 70%;
+        padding: 20px;
+    }
+
+    input {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #btnAdicionar {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    li {
+        background-color: white;
+        border: none;
+        width: 100%;
+        max-width: 300px;
+    }
+}
